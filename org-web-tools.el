@@ -489,7 +489,10 @@ tag)."
 
 (defun org-web-tools--get-first-url ()
   "Return URL in clipboard, or first URL in the `kill-ring', or nil if none."
-  (cl-loop for item in (append (list (gui-get-selection 'CLIPBOARD))
+  (cl-loop for item in (append (let ((selection (funcall interprogram-paste-function)))
+                                 (cl-case selection
+                                   (string (list selection))
+                                   (list selection)))
                                kill-ring)
            if (string-match (rx bol "http" (optional "s") "://") item)
            return item))
