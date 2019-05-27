@@ -13,10 +13,10 @@ TEST_ERT_FILES=$(wildcard test/*.el)
 LINT_CHECKDOC_FILES=
 
 # List of files to check for packaging guidelines:
-LINT_PACKAGE_LINT_FILES=$(wildcard *.el) $(wildcard test/*.el)
+LINT_PACKAGE_LINT_FILES=org-web-tools.el
 
 # List of files to check for compilation errors and warnings:
-LINT_COMPILE_FILES=$(wildcard *.el) $(wildcard test/*.el)
+LINT_COMPILE_FILES=org-web-tools.el
 
 makel.mk:
 	@if [ -f ../makel/makel.mk ]; then \
